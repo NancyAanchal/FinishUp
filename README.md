@@ -38,9 +38,9 @@ Welcome to **Finish Up**, a cross-platform mobile app built using **React Native
 |-------------------------|----------------------------|--------------------------|
 | ![Login](./screenshots/login.png)  | ![Home Screen](./screenshots/home.png) | ![Calendar](./screenshots/calendar.png) |
 
-|Profile with Graph | Add a task        |
-|-------------------------|-----------------------------|
-| ![Profile Graph](./screenshots/profile.png) | ![Add screen](./screenshots/add.png) |
+|Profile with Graph | Add a task        | Info and Edit page |
+|-------------------------|-----------------------------|-------------------------|
+| ![Profile Graph](./screenshots/profile.png) | ![Add screen](./screenshots/add.png) | ![Info and edit screen](./screenshots/editscreen.png)  |
 
 ---
 
