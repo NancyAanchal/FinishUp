@@ -3,11 +3,12 @@
 Welcome to **Finish Up**, a cross-platform mobile app built using **React Native** and **Expo**. This app allows users to manage their tasks effortlessly by organizing, tracking, and filtering their to-dos with a smooth user experience.
 
 <div align="center">
-  <img src="./screenshots/home.png" alt="App Screenshot 1" width="200"/>
-  <img src="your_image_url_2" alt="App Screenshot 2" width="200"/>
-  <img src="your_image_url_3" alt="App Screenshot 3" width="200"/>
-  <img src="your_image_url_4" alt="App Screenshot 4" width="200"/>
-  <img src="your_image_url_5" alt="App Screenshot 5" width="200"/>
+  <img src="./screenshots/login.png" alt="Login" width="200"/>
+  <img src="./screenshots/home.png" alt="Home" width="200"/>
+  <img src="./screenshots/calendar.png" alt="Calendar" width="200"/>
+  <img src="./screenshots/profile.png" alt="Profile" width="200"/>
+  <img src="./screenshots/add.png" alt="Add a todo" width="200"/>
+  <img src="./screenshots/editscreen.png" alt="Info and edit" width="200"/>
 </div>
 
 ---
