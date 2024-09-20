@@ -1,4 +1,5 @@
 # 📋 Finish Up
+<img src="./assets/finishup-nobg.png" alt="Finish Up" width="250"/> <img src="./assets/icon.png" alt="Logo" width="100"/>
 
 Welcome to **Finish Up**, a cross-platform mobile app built using **React Native** and **Expo**. This app allows users to manage their tasks effortlessly by organizing, tracking, and filtering their to-dos with a smooth user experience.
 
