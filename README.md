@@ -43,7 +43,7 @@ Welcome to **Finish Up**, a cross-platform mobile app built using **React Native
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/NancyAanchal/FinishUp.git
 2. **Install dependencies:**
    ```bash
    npm install
@@ -53,7 +53,7 @@ Welcome to **Finish Up**, a cross-platform mobile app built using **React Native
 4. Start the backend server:
     ```bash
     cd api
-    nodemon server.js
+    yarn start
     
 🗂️ Project Structure
 ```perl
@@ -63,8 +63,15 @@ Welcome to **Finish Up**, a cross-platform mobile app built using **React Native
     ├── index.js        # Backend logic
     ├── ...              
     📂 app
-    ├── (authenticate)/          
-    ├── (tabs)/      
+    ├── (authenticate)/
+    |     ├── _layout.js
+    |     ├──login.js
+    |     ├──register.js         
+    ├── (tabs)/
+    |     ├──_layout.js
+    |     ├──home/
+    |     ├──calendar/
+    |     ├──profile/      
     ├── components/         
     └── index.js            
     └── StartingPage.js
