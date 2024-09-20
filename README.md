@@ -53,6 +53,7 @@ Welcome to **Finish Up**, a cross-platform mobile app built using **React Native
 4. Start the backend server:
     ```bash
     cd api
+    npm install
     yarn start
     
 🗂️ Project Structure
