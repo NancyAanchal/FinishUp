@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -21,28 +21,8 @@ import { jwtDecode } from "jwt-decode";
 export default function LoginScreen() {
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
-  const [pressedLogin, setPressedLogin] = useState(false);
 
   const router = useRouter();
-
-  useEffect(() => {
-    const checkLoginStatus = async () => {
-      try {
-        const token = await AsyncStorage.getItem("authToken");
-
-        setPressedLogin(false);
-        if (token) {
-          const decodedToken = jwtDecode(token);
-          const userId = decodedToken.userId;
-          await AsyncStorage.setItem("userId", userId);
-          router.replace("/(tabs)/home");
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    checkLoginStatus();
-  }, [pressedLogin]);
 
   const handleLogin = async () => {
     const emailError = emailValidator(email.value);
@@ -59,7 +39,10 @@ export default function LoginScreen() {
     };
 
     try {
-      const response = await axios.post("http://localhost:3000/login", user);
+      const response = await axios.post(
+        "https://finishup.onrender.com/login",
+        user
+      );
 
       const token = response.data.token;
 
@@ -67,7 +50,6 @@ export default function LoginScreen() {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.userId;
       await AsyncStorage.setItem("userId", userId);
-      setPressedLogin(true);
 
       router.replace("/(tabs)/home");
     } catch (error) {

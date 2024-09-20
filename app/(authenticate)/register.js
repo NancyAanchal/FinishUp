@@ -56,7 +56,7 @@ export default function RegisterScreen() {
     };
 
     axios
-      .post("http://localhost:3000/register", user)
+      .post("https://finishup.onrender.com/register", user)
       .then((response) => {
         Alert.alert(
           "registration succesfuul",

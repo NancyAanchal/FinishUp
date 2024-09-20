@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
+import { jwtDecode } from "jwt-decode";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const StartingPage = () => {
   const router = useRouter();
+  const [pressedButton, setPressedButton] = useState(false);
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const token = await AsyncStorage.getItem("authToken");
+
+        setPressedButton(false);
+        if (token) {
+          const decodedToken = jwtDecode(token);
+          const userId = decodedToken.userId;
+          console.log(userId);
+          await AsyncStorage.setItem("userId", userId);
+          router.replace("/home");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    checkLoginStatus();
+  }, [pressedButton]);
+
   return (
     <View style={styles.container}>
       <Image
@@ -26,7 +50,13 @@ const StartingPage = () => {
         Welcome to a more productive you
       </Text>
 
-      <Pressable style={styles.button} onPress={() => router.replace("/login")}>
+      <Pressable
+        style={styles.button}
+        onPress={() => {
+          router.replace("/login");
+          setPressedButton(true);
+        }}
+      >
         <Text style={styles.buttonText}>Get Started</Text>
       </Pressable>
     </View>

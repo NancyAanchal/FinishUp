@@ -19,7 +19,7 @@ const info = () => {
   const editTodo = async (updatedData) => {
     try {
       const response = await axios.patch(
-        `http://localhost:3000/todos/${params.id}/update`,
+        `https://finishup.onrender.com/todos/${params.id}/update`,
         updatedData
       );
     } catch (error) {

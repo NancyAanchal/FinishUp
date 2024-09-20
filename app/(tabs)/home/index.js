@@ -76,11 +76,9 @@ const index = () => {
       const userId = await AsyncStorage.getItem("userId");
 
       axios
-        .post(`http://localhost:3000/${userId}/todos`, todoData)
+        .post(`https://finishup.onrender.com/${userId}/todos`, todoData)
         .then((response) => {})
-        .catch((error) => {
-          // console.log("error", error);
-        });
+        .catch((error) => {});
       await getUserTodos();
       setModalVisible(false);
       setReload(true);
@@ -88,9 +86,7 @@ const index = () => {
       setDescription("");
       setCategory("All");
       setDueDate(moment().format("MMM DD"));
-    } catch (error) {
-      // console.error("error adding todo", error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -102,7 +98,7 @@ const index = () => {
       const userId = await AsyncStorage.getItem("userId");
 
       const response = await axios.get(
-        `http://localhost:3000/users/${userId}/todos`
+        `https://finishup.onrender.com/users/${userId}/todos`
       );
 
       setTodos(response.data.todos);
@@ -118,31 +114,25 @@ const index = () => {
       setPendingTodos(pending);
       setCompletedTodos(completed);
       setReload(false);
-    } catch (error) {
-      // console.log("error", error);
-    }
+    } catch (error) {}
   };
 
   const markTodoCompleted = async (todoId) => {
     try {
       setReload(true);
       const response = await axios.patch(
-        `http://localhost:3000/todos/${todoId}/complete`
+        `https://finishup.onrender.com/todos/${todoId}/complete`
       );
-    } catch (error) {
-      // console.log("error", error);
-    }
+    } catch (error) {}
   };
 
   const deleteTodo = async (todoId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/todos/${todoId}/delete`
+        `https://finishup.onrender.com/todos/${todoId}/delete`
       );
       setReload(true);
-    } catch (error) {
-      // console.log("couldn't delete", error);
-    }
+    } catch (error) {}
   };
 
   return (
@@ -265,7 +255,7 @@ const index = () => {
                     borderRadius: 7,
                     marginVertical: 10,
                   }}
-                  keys={index}
+                  key={index}
                 >
                   <View
                     style={{
@@ -360,7 +350,7 @@ const index = () => {
                             borderRadius: 7,
                             marginVertical: 10,
                           }}
-                          keys={index}
+                          key={index}
                         >
                           <View
                             style={{
