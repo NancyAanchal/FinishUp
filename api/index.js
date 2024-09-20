@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const crypto = require("crypto");
@@ -15,7 +16,7 @@ const moment = require("moment");
 
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb+srv://nancy_aanchal:anj2006@cluster0.f6sin.mongodb.net/")
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("connected to database");
   })
