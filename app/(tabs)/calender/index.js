@@ -21,7 +21,7 @@ const index = () => {
       const userId = await AsyncStorage.getItem("userId");
 
       const response = await axios.get(
-        `http://localhost:3000/${userId}/todos/completed/${selectedDate}`
+        `https://finishup.onrender.com/${userId}/todos/completed/${selectedDate}`
       );
       const completedTodos = response.data.completedTodos || [];
       setTodos(completedTodos);
@@ -77,7 +77,7 @@ const index = () => {
               borderRadius: 7,
               marginVertical: 5,
             }}
-            keys={index}
+            key={index}
           >
             <View
               style={{

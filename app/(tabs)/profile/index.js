@@ -23,7 +23,7 @@ const index = () => {
     try {
       const userId = await AsyncStorage.getItem("userId");
       const response = await axios.get(
-        `http://localhost:3000/${userId}/todos/count`
+        `https://finishup.onrender.com/${userId}/todos/count`
       );
       const { totalCompletedTodos, totalPendingTodos } = response.data;
       setCompletedTodos(totalCompletedTodos);
@@ -39,7 +39,7 @@ const index = () => {
       const userId = await AsyncStorage.getItem("userId");
 
       // Call the backend logout endpoint with the token in the Authorization header
-      await axios.post(`http://localhost:3000/${userId}/logout`);
+      await axios.post(`https://finishup.onrender.com/${userId}/logout`);
 
       // Clear the JWT token from AsyncStorage
       await AsyncStorage.removeItem("userId");
