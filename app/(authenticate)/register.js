@@ -26,9 +26,11 @@ export default function RegisterScreen() {
     value: "",
     error: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
   const handleRegister = () => {
+    setLoading(true);
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
     if (emailError || passwordError) {
@@ -74,6 +76,7 @@ export default function RegisterScreen() {
           "an error occured during registration"
         );
       });
+    setLoading(false);
 
     router.replace("/(tabs)/home");
   };
@@ -83,10 +86,11 @@ export default function RegisterScreen() {
       style={{
         fkex: 1,
         paddingHorizontal: 35,
-        paddingTop: 10,
+        paddingVertical: 50,
         alignItems: "center",
       }}
     >
+      {loading && <ActivityIndicator size="large" color="#5e57FF" />}
       <View>
         <Logo />
       </View>
@@ -134,7 +138,7 @@ export default function RegisterScreen() {
       <Button
         mode="contained"
         onPress={handleRegister}
-        style={{ marginTop: 14, backgroundColor: "#5e57FF" }}
+        style={{ marginTop: 20, backgroundColor: "#5e57FF" }}
       >
         <Text>Register</Text>
       </Button>

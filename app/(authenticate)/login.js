@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Text,
   SafeAreaView,
+  ActivityIndicator,
 } from "react-native";
 import Logo from "../components/Logo";
 import FinishUp from "../components/FinishUp";
@@ -21,10 +22,12 @@ import { jwtDecode } from "jwt-decode";
 export default function LoginScreen() {
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
   const handleLogin = async () => {
+    setLoading(true);
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
     if (emailError || passwordError) {
@@ -50,7 +53,7 @@ export default function LoginScreen() {
       const decodedToken = jwtDecode(token);
       const userId = decodedToken.userId;
       await AsyncStorage.setItem("userId", userId);
-
+      setLoading(false);
       router.replace("/(tabs)/home");
     } catch (error) {
       console.error(error);
@@ -67,6 +70,7 @@ export default function LoginScreen() {
         paddingVertical: 50,
       }}
     >
+      {loading && <ActivityIndicator size="large" color="#5e57FF" />}
       <View style={{ marginTop: 50 }}>
         <Logo />
       </View>
