@@ -57,17 +57,24 @@ const index = () => {
   }, []);
 
   return (
-    <View style={{ padding: 10, flex: 1, backgroundColor: "white" }}>
+    <View
+      style={{
+        padding: 10,
+        flex: 1,
+        backgroundColor: "white",
+        paddingHorizontal: 25,
+      }}
+    >
       <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
         <FontAwesome name="user" size={40} color="black" />
         <View>
-          <Text style={{ fontSize: 16, fontWeight: "600" }}>
+          <Text style={{ fontSize: 18, fontWeight: "600" }}>
             Keep plans for 15 days
           </Text>
           <Text
             style={{
-              fontSize: 13,
-              color: WebGLVertexArrayObject,
+              fontSize: 15,
+              color: "gray",
               marginTop: 2,
             }}
           >
@@ -76,10 +83,12 @@ const index = () => {
         </View>
       </View>
 
-      <View style={{ marginVertical: 12 }}>
+      <View style={{ marginVertical: 20 }}>
         <View style={{ flexDirection: "row", gap: 5, marginBottom: 5 }}>
-          <Text style={{ fontWeight: "bold" }}>Tasks Overview</Text>
-          <AntDesign name="caretdown" size={14} color="black" />
+          <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+            Tasks Overview
+          </Text>
+          <AntDesign name="caretdown" size={20} color="black" />
         </View>
         <View
           style={{
@@ -97,14 +106,15 @@ const index = () => {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
+              marginTop: 20,
             }}
           >
             <Text
-              style={{ textAlign: "center", fontSize: 16, fontWeight: "bold" }}
+              style={{ textAlign: "center", fontSize: 18, fontWeight: "bold" }}
             >
               {completedTodos}
             </Text>
-            <Text style={{ marginTop: 4 }}>Completed</Text>
+            <Text style={{ marginTop: 4, fontSize: 16 }}>Completed</Text>
           </View>
           <View
             style={{
@@ -114,14 +124,15 @@ const index = () => {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
+              marginTop: 20,
             }}
           >
             <Text
-              style={{ textAlign: "center", fontSize: 14, fontWeight: "bold" }}
+              style={{ textAlign: "center", fontSize: 18, fontWeight: "bold" }}
             >
               {pendingTodos}
             </Text>
-            <Text style={{ marginTop: 4 }}>Pending</Text>
+            <Text style={{ marginTop: 4, fontSize: 16 }}>Pending</Text>
           </View>
         </View>
       </View>
@@ -155,7 +166,7 @@ const index = () => {
           backgroundColor: "#04fae2",
           padding: 10,
           borderRadius: 6,
-          marginTop: 10,
+          marginTop: 30,
         }}
       >
         <Pressable
@@ -163,18 +174,20 @@ const index = () => {
             handleLogout();
           }}
         >
-          <Text style={{ textAlign: "center", color: "gray" }}>Logout</Text>
+          <Text style={{ textAlign: "center", color: "gray", fontSize: 18 }}>
+            Logout
+          </Text>
         </Pressable>
       </View>
       <View
         style={{
           justifyContent: "center",
           alignItems: "center",
-          marginTop: 10,
+          marginTop: 30,
         }}
       >
         <Image
-          style={{ width: 100, height: 100 }}
+          style={{ width: 110, height: 110 }}
           source={require("../../../assets/icon.png")}
         />
       </View>

@@ -61,7 +61,7 @@ const info = () => {
         </View>
       </View>
 
-      <View style={{}}>
+      <View>
         <Text style={{ marginTop: 8, marginBottom: 3, fontWeight: "500" }}>
           To-do:
         </Text>
@@ -71,10 +71,9 @@ const info = () => {
           placeholder="Title for your to-do"
           style={{
             fontWeight: "bold",
-            flex: 1,
           }}
           multiline={true}
-          onBlur={() => {
+          onBlur={(text) => {
             editTodo({ title: title });
           }}
         />
@@ -85,7 +84,6 @@ const info = () => {
       </Text>
       <View
         style={{
-          flexDirection: "row",
           alignItems: "center",
           borderColor: "black",
           borderWidth: 1,
@@ -99,8 +97,6 @@ const info = () => {
           placeholder="Describe your To-Do"
           style={{
             padding: 10,
-
-            flex: 1,
           }}
           multiline={true}
           onBlur={() => {
@@ -130,23 +126,27 @@ const info = () => {
             marginTop: 5,
           }}
         >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 7 }}>
-            <Entypo name="calendar" size={22} color="black" />{" "}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 7,
+            }}
+          >
+            <Entypo name="calendar" size={22} color="black" />
             <Text>Due date</Text>
           </View>
-
           <TextInput
             value={dueDate}
             onChangeText={(text) => setDueDate(text)}
             onBlur={() =>
               editTodo({
                 dueDate: moment(dueDate, "MMM DD").isValid()
-                  ? moment(dueDate).format("MMM DD") // Ensure it's in the desired format
+                  ? moment(dueDate).format("MMM DD")
                   : moment().format("MMM DD"),
               })
             }
             style={{
-              flex: 1,
               alignItems: "center",
               backgroundColor: "#04fae2",
               padding: 5,

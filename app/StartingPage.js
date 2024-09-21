@@ -17,7 +17,6 @@ const StartingPage = () => {
         if (token) {
           const decodedToken = jwtDecode(token);
           const userId = decodedToken.userId;
-          console.log(userId);
           await AsyncStorage.setItem("userId", userId);
           router.replace("/home");
         }

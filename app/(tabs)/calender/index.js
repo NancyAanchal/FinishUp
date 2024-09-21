@@ -56,7 +56,7 @@ const index = () => {
           [selectedDate]: { selected: true, selectedColor: "#5e57FF" },
         }}
       />
-      <View style={{ marginTop: 1, marginHorizontal: 10 }}>
+      <View style={{ marginTop: 1, marginHorizontal: 35 }}>
         <View
           style={{
             flexDirection: "row",
@@ -65,8 +65,10 @@ const index = () => {
             marginVertical: 12,
           }}
         >
-          <Text style={{ fontWeight: "bold" }}>Finished up todos</Text>
-          <AntDesign name="caretdown" size={14} color="black" />
+          <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+            Finished up todos
+          </Text>
+          <AntDesign name="caretdown" size={24} color="black" />
         </View>
         {todos?.map((item, index) => (
           <Pressable

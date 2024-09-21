@@ -28,12 +28,12 @@ const index = () => {
   const [category, setCategory] = useState("All");
   const [todo, setTodo] = useState("");
   const [description, setDescription] = useState("");
-  const [PendingTodos, setPendingTodos] = useState("");
-  const [CompletedTodos, setCompletedTodos] = useState("");
+  const [PendingTodos, setPendingTodos] = useState([]);
+  const [CompletedTodos, setCompletedTodos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [reload, setReload] = useState(false);
   const [dueDate, setDueDate] = useState(moment().format("MMM DD"));
-  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const suggestions = [
     {
       id: "0",
@@ -139,8 +139,8 @@ const index = () => {
     <>
       <View
         style={{
-          marginHorizontal: 10,
-          marginVertical: 10,
+          marginHorizontal: 20,
+          marginVertical: 20,
           flexDirection: "row",
           alignItems: "center",
           gap: 10,
@@ -152,7 +152,7 @@ const index = () => {
           }}
           style={{
             backgroundColor: selectedCategory === "All" ? "#5e57FF" : "white",
-            padding: 5,
+            padding: 10,
             borderRadius: 25,
             alignItems: "center",
             justifyContent: "center",
@@ -166,7 +166,7 @@ const index = () => {
           }}
           style={{
             backgroundColor: selectedCategory === "Work" ? "#5e57FF" : "white",
-            padding: 5,
+            padding: 10,
             borderRadius: 25,
             alignItems: "center",
             justifyContent: "center",
@@ -181,7 +181,7 @@ const index = () => {
           style={{
             backgroundColor:
               selectedCategory === "Personal" ? "#5e57FF" : "white",
-            padding: 5,
+            padding: 10,
             borderRadius: 25,
             alignItems: "center",
             justifyContent: "center",
@@ -192,7 +192,7 @@ const index = () => {
             Personal
           </Text>
         </Pressable>
-        <Pressable
+        {/* <Pressable
           onPress={() => {
             setSelectedCategory("Wishlist");
           }}
@@ -209,20 +209,20 @@ const index = () => {
           <Text style={{ fontWeight: "bold", textAlign: "center" }}>
             Wishlist
           </Text>
-        </Pressable>
+        </Pressable> */}
 
         <Pressable>
           <AntDesign
             onPress={() => setModalVisible(!isModalVisible)}
             name="pluscircle"
-            size={30}
+            size={40}
             color="#4BFF36"
           />
         </Pressable>
       </View>
 
       <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
-        <View style={{ paddingVertical: 10, paddingHorizontal: 20 }}>
+        <View style={{ paddingVertical: 10, paddingHorizontal: 35 }}>
           {todos?.length > 0 ? (
             <View>
               {PendingTodos?.length > 0 && (
@@ -297,7 +297,7 @@ const index = () => {
                       />
                       <Text
                         style={{
-                          fontSize: 16,
+                          fontSize: 17,
                           marginTop: 2,
                           marginBottom: 10,
                           fontWeight: "600",
@@ -310,7 +310,7 @@ const index = () => {
                         <AntDesign
                           onPress={() => setModalVisible(!isModalVisible)}
                           name="pluscircle"
-                          size={34}
+                          size={44}
                           color="#4BFF36"
                         />
                       </Pressable>
@@ -330,13 +330,13 @@ const index = () => {
                         setIsDropdownOpen(!isDropdownOpen);
                       }}
                     >
-                      <Text style={{ fontWeight: "bold" }}>
+                      <Text style={{ fontWeight: "bold", fontSize: 18 }}>
                         Finished up todos
                       </Text>
                       {isDropdownOpen ? (
-                        <AntDesign name="caretup" size={14} color="black" />
+                        <AntDesign name="caretup" size={24} color="black" />
                       ) : (
-                        <AntDesign name="caretdown" size={14} color="black" />
+                        <AntDesign name="caretdown" size={24} color="black" />
                       )}
                     </Pressable>
 
@@ -388,11 +388,11 @@ const index = () => {
                 <Text
                   style={{
                     alignItems: "center",
-                    fontSize: "16",
+                    fontSize: 16,
                     fontWeight: "500",
                   }}
                 >
-                  No To-Dos have been Finished up yet{" "}
+                  No To-Dos have been Finished up yet
                 </Text>
               )}
             </View>
@@ -426,7 +426,7 @@ const index = () => {
                 <AntDesign
                   onPress={() => setModalVisible(!isModalVisible)}
                   name="pluscircle"
-                  size={40}
+                  size={50}
                   color="#4BFF36"
                 />
               </Pressable>
@@ -439,16 +439,16 @@ const index = () => {
         onBackdropPress={() => setModalVisible(!isModalVisible)}
         onHardwareBackPress={() => setModalVisible(!isModalVisible)}
         swipeDirection={["up", "down"]}
-        swipeThreshold={200}
+        swipeThreshold={400}
         modalTitle={<ModalTitle title="Add a todo" />}
         modalAnimation={new SlideAnimation({ slideFrom: "bottom" })}
         visible={isModalVisible}
         onTouchOutside={() => setModalVisible(!isModalVisible)}
       >
-        <ModalContent style={{ width: "100", height: 350 }}>
+        <ModalContent style={{ width: "100", height: 480 }}>
           <View
             style={{
-              marginVertical: 10,
+              marginVertical: 20,
               flexDirection: "row",
               alignItems: "center",
               gap: 10,
@@ -462,10 +462,10 @@ const index = () => {
                 padding: 10,
                 borderColor: "black",
                 borderWidth: 1,
-                borderRadius: 5,
+                borderRadius: 8,
                 flex: 1,
               }}
-            />{" "}
+            />
             <Ionicons
               onPress={addTodo}
               name="send-sharp"
@@ -483,7 +483,6 @@ const index = () => {
               borderColor: "black",
               borderWidth: 1,
               borderRadius: 5,
-              flex: 1,
             }}
           />
           <Pressable
@@ -494,7 +493,7 @@ const index = () => {
               gap: 5,
             }}
           >
-            <FontAwesome name="calendar" size={24} color="black" />
+            <FontAwesome name="calendar" size={34} color="black" />
 
             <TextInput
               value={dueDate}
@@ -574,7 +573,6 @@ const index = () => {
                 alignItems: "center",
                 gap: 10,
                 flexWrap: "wrap",
-                // marginVertical: 10,
                 marginBottom: 10,
                 marginTop: 3,
               }}
