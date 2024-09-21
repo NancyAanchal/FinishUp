@@ -6,6 +6,7 @@ import {
   Text,
   SafeAreaView,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import Logo from "../components/Logo";
 import FinishUp from "../components/FinishUp";
@@ -29,6 +30,7 @@ export default function RegisterScreen() {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
+
   const handleRegister = () => {
     setLoading(true);
     const emailError = emailValidator(email.value);
