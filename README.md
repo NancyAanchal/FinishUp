@@ -49,12 +49,9 @@ Welcome to **Finish Up**, a cross-platform mobile app built using **React Native
    npm install
 3. Run the app:
    ```bash
-    npx expo start
-4. Start the backend server:
-    ```bash
-    cd api
-    npm install
-    yarn start
+    npx expo start -a // runs on android emulator or your mobile phone
+4. Start the backend server: 
+   Backend has already been deployed
     
 🗂️ Project Structure
 ```perl
